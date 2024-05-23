@@ -1,0 +1,85 @@
+{% extends "cars/base.html" %}
+
+{% block body %}
+<div class="container md:container-xl mx-auto p-3.5">
+
+    <div class="mb-7 flex justify-center items-center text-center">
+        <h2
+            class="text-5xl leading-normal font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-orange-500">
+            About Emon
+        </h2>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 items-center gap-8">
+
+        <div
+            class="card border-2 border-transparent hover:border-yellow-600 rounded-lg hover:shadow-xl transition duration-300 ease-in-out">
+            <img src="https://backiee.com/static/wallpapers/560x315/184337.jpg"
+                alt="" class="w-full rounded-t-md">
+            <div class="p-3">
+                <div class="text-slate-600 text-sm font-normal pt-2">Oct, 2021</div>
+                <h2 class="text-sky-800 text-lg font-semibold line-clamp-2 pt-2.5 h-[66px]">Sports Cars:</h2>
+                <!-- Printing and Typesetting -->
+                <p class="text-slate-700 font-normal leading-6 pt-1 h-[170px]">For those who crave the
+                    thrill of the open road and the roar of a powerful engine, our collection of sports cars offers the
+                    ultimate driving experience. Each vehicle in our sports car lineup is a masterpiece of engineering,
+                    designed to deliver exceptional performance and precision handling. From the latest models of iconic
+                    brands to limited edition supercars, Emon ensures that every drive is a heart-pounding adventure</p>
+            </div>
+        </div>
+
+        <div
+            class="card border-2 border-transparent hover:border-yellow-600 rounded-lg hover:shadow-xl transition duration-300 ease-in-out">
+            <img src="https://4kwallpapers.com/images/walls/thumbs_2t/2314.jpg" alt="" class="w-full rounded-t-md">
+            <div class="p-3">
+                <div class="text-slate-600 text-sm font-normal pt-2">Oct, 2021</div>
+                <h2 class="text-sky-800 text-lg font-semibold line-clamp-2 pt-2.5 h-[66px]">Luxury Cars:</h2>
+                <p class="text-slate-700 font-normal line-clamp-2 leading-6 pt-1 h-[170px]">At Emon, luxury is more than
+                    just a word—it's a way of life. Our luxury car collection features the epitome of elegance and
+                    comfort, with meticulously crafted interiors, state-of-the-art technology, and superior
+                    craftsmanship. Whether you seek the refined grace of a classic sedan or the commanding presence of a
+                    high-end SUV, our luxury cars offer an unmatched level of sophistication and prestige.</p>
+            </div>
+        </div>
+
+        <div
+            class="card border-2 border-transparent hover:border-yellow-600 rounded-lg hover:shadow-xl transition duration-300 ease-in-out">
+            <img src="https://www.certisgroup.com/Portals/0/OpenContent/Files/2153/Certis_Sustainability_Mobile_banner.png"
+                alt="" class="w-full rounded-t-md">
+            <div class="p-3">
+                <div class="text-slate-600 text-sm font-normal pt-2">Oct, 2021</div>
+                <h2 class="text-sky-800 text-lg font-semibold line-clamp-2 pt-2.5 h-[66px]">Our Commitment</h2>
+                <p class="text-slate-700 font-normal line-clamp-2 leading-6 pt-1 h-[170px]">At Emon, we are committed to
+                    providing our clients with an exceptional car buying experience. Our knowledgeable team is
+                    passionate about cars and dedicated to helping you find the perfect vehicle that meets your unique
+                    tastes and requirements. We offer personalized service, ensuring that every detail of your purchase
+                    is tailored to your satisfaction. </p>
+                <!--  dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.  -->
+            </div>
+        </div>
+
+    </div><br><br>
+    <div class="mb-7 flex justify-center items-center text-center">
+        Why Choose Emon?<br>
+        Exclusive Selection: We offer a curated selection of the finest sports and luxury cars from around the
+        world.<br>
+        Expertise: Our team of car enthusiasts has extensive knowledge and expertise in the automotive industry.<br>
+        Customer Service: We prioritize your satisfaction and provide personalized, professional service.<br>
+        Quality Assurance: Every vehicle in our inventory undergoes rigorous inspection to ensure it <br>meets our high
+        standards of quality and performance.
+    </div>
+</div><br>
+<div class="mb-7 flex justify-center items-center text-center">
+    Contact Us<br>
+    Discover the difference of driving a car<br>
+    from Emon. Visit our showroom, explore our <br>online inventory, or contact us to schedule a test drive.<br> Let us help
+    you find the car of your dreams.<br>
+
+    Emon – Where Performance Meets Luxury.
+</div>
+<div class="pt-9 flex justify-center items-center text-center">
+    <button class="bg-sky-800 hover:bg-yellow-600 text-white rounded-full px-8 py-3 text-xl font-semibold"><a href="{% url 'cars:home' %}">Home</a></button>
+</div><br>
+
+</div>
+
+{% endblock %}

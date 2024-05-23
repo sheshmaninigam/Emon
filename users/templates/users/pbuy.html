@@ -1,0 +1,103 @@
+{% extends "cars/base.html" %}
+
+{% block body %}
+
+{% if user_type == "Admin" %}
+<div class="container flex justify-center mx-auto">
+    <h1><b>All Transaction of Users</b></h1>
+</div>
+<div class="px-20 py-20 mt-20 max-w-md">
+    <table class="w-full border-collapse" style="table-layout: fixed; width: 1000px; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); border-radius: 8px; background-color: #ffffff;">
+        <colgroup>
+            <col style="width: 250px;">
+            <col style="width: 250px;">
+            <col style="width: 250px;">
+            <col style="width: 250px;">
+            <col style="width: 250px;">
+        </colgroup>
+        <thead>
+            <tr style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+                <th class="text-left font-bold text-black-700 px-4 py-2" style="background-color: #f0f0f0;">Date</th>
+                <th class="text-left font-bold text-black-700 px-4 py-2" style="background-color: #f0f0f0;">Brand</th>
+                <th class="text-left font-bold text-black-700 px-4 py-2" style="background-color: #f0f0f0;">Name</th>
+                <th class="text-left font-bold text-black-700 px-4 py-2" style="background-color: #f0f0f0;">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if user_type == "Admin" %}
+                {% for trans in trans %}
+                <tr style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+                    <td class="text-left text-gray-700 px-4 py-2"><br>
+                        <a href="{% url 'binfo' trans.id %}" class="rounded-lg px-2 py-2 border-2 border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-yellow-100 duration-300">
+                            {{ trans.date_time }}
+                        </a>
+                        <br><br>
+                    </td>
+                    <td class="text-left text-gray-700 px-4 py-2">
+                        <b>{{ trans.brand }}</b>
+                    </td>
+                    <td class="text-left text-gray-700 px-4 py-2">
+                        <b>{{ trans.name }}</b>
+                    </td>
+                    <td class="text-left text-gray-700 px-4 py-2">
+                        <b style="color: rgb(27, 188, 16);">{{ trans.statuses }}</b>
+                    </td>
+                </tr>
+                {% endfor %}
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+{% endif %}
+
+
+{% if user_type == "user" %}
+<div class="container flex justify-center mx-auto">
+    <h1><b>Transaction Info</b></h1>
+</div>
+<div class="px-20 py-20 mt-20 max-w-md">
+    <table class="w-full border-collapse" style="table-layout: fixed; width: 1000px; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); border-radius: 8px; background-color: #ffffff;">
+        <colgroup>
+            <col style="width: 250px;">
+            <col style="width: 250px;">
+            <col style="width: 250px;">
+            <col style="width: 250px;">
+            <col style="width: 250px;">
+        </colgroup>
+        <thead>
+            <tr style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+                <th class="text-left font-bold text-black-700 px-4 py-2" style="background-color: #f0f0f0;">Date</th>
+                <th class="text-left font-bold text-black-700 px-4 py-2" style="background-color: #f0f0f0;">Brand</th>
+                <th class="text-left font-bold text-black-700 px-4 py-2" style="background-color: #f0f0f0;">Name</th>
+                <th class="text-left font-bold text-black-700 px-4 py-2" style="background-color: #f0f0f0;">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for trans in trans %}
+            {% if trans.user == request.user %}
+            <tr style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+                <td class="text-left text-gray-700 px-4 py-2"><br>
+                    <a href="{% url 'binfo' trans.id %}" class="rounded-lg px-2 py-2 border-2 border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-yellow-100 duration-300">
+                        {{ trans.date_time }}
+                    </a>
+                    <br><br>
+                </td>
+                <td class="text-left text-gray-700 px-4 py-2">
+                    <b>{{ trans.brand }}</b>
+                </td>
+                <td class="text-left text-gray-700 px-4 py-2">
+                    <b>{{ trans.name }}</b>
+                </td>
+                <td class="text-left text-gray-700 px-4 py-2">
+                    <b style="color: rgb(27, 188, 16);">{{ trans.statuses }}</b>
+                </td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endif %}
+
+
+{% endblock %}
